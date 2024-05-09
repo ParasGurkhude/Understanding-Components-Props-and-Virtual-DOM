@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    // Your ItemList component code will go here
+
+    //Gallery Component
+    function Gallery({ children }) {
+        return (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
+                {children}
+            </div>
+        );
+    }
+
+    //Image Component
+    function Image({ src }) {
+        return <img src={src} alt="Gallery Image" style={{ maxWidth: '100%', height: '300px' }} />;
+    }
+
+    // Example usage: Gallery with Image components as children
+    reactRoot.render(
+        <Gallery>
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4GqvjGTZVNjHlP-8C48qqX__ILQQwBSiMA&s" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfQngHcYqgaRtxAgpOJ6xd7g753eur8uoCTA&s" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdD7vo2xoY9ClzEDEhLaUz86NSSQBv7Xlf1g&s" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK0AEERevihl2liVqg_P5SNvIUbgXWjfZe4Q&s" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzhZ5Hk8bd90s-qS6QJ_4iAJdFwvTU0KqMSg&s" />
+            <Image src="https://i.pinimg.com/564x/df/93/ce/df93ce918356fb4239a6096c3ba57d22.jpg" />
+            <Image src="https://i.pinimg.com/564x/6f/42/01/6f42016e73558dece6c08f36eebb9544.jpg" />
+            <Image src="https://i.pinimg.com/564x/ad/cd/3c/adcd3cbe4c77ea659871fef701ba0ae1.jpg" />
+            <Image src="https://i.pinimg.com/564x/a7/48/e3/a748e3becc91e9e3300818b3e499f3fe.jpg" />
+            {/* Additional images can be included as needed */}
+        </Gallery>
+    );
+  </script>
+</body>
+</html>
